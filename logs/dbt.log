@@ -1,0 +1,109 @@
+
+
+============================== 2023-04-18 00:57:37.895587 | d642fa7e-06f4-406f-ba40-cf3a2bdbb7b9 ==============================
+[0m00:57:37.895587 [info ] [MainThread]: Running with dbt=1.4.5
+[0m00:57:37.896469 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/data/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'project_name': 'demo_dbt', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m00:57:37.896558 [debug] [MainThread]: Tracking: tracking
+[0m00:57:37.904891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c3a390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4dd50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4e490>]}
+[0m00:57:37.906066 [debug] [MainThread]: Starter project path: /opt/homebrew/lib/python3.11/site-packages/dbt/include/starter_project
+[0m00:57:37.909042 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4ea90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4f350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4f3d0>]}
+[0m00:57:37.909194 [debug] [MainThread]: Flushing usage events
+[0m00:57:38.724275 [error] [MainThread]: Encountered an error:
+while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/data/.dbt/profiles.yml", line 4, column 26
+[0m00:57:38.727784 [error] [MainThread]: Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/dbt/main.py", line 136, in main
+    results, succeeded = handle_and_check(args)
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/dbt/main.py", line 206, in handle_and_check
+    task, res = run_from_args(parsed)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/dbt/main.py", line 253, in run_from_args
+    results = task.run()
+              ^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/dbt/task/init.py", line 302, in run
+    if not self.check_if_can_write_profile(profile_name=project_name):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/dbt/task/init.py", line 201, in check_if_can_write_profile
+    profiles = yaml.safe_load(f) or {}
+               ^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/opt/homebrew/lib/python3.11/site-packages/yaml/scanner.py", line 258, in fetch_more_tokens
+    raise ScannerError("while scanning for the next token", None,
+yaml.scanner.ScannerError: while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/data/.dbt/profiles.yml", line 4, column 26
+
+
+
+============================== 2023-04-18 01:34:21.394377 | 4ae1f800-d2b7-48f4-bd0a-da74b6970045 ==============================
+[0m01:34:21.394377 [info ] [MainThread]: Running with dbt=1.4.5
+[0m01:34:21.396123 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/data/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'config_dir': False, 'which': 'debug', 'indirect_selection': 'eager'}
+[0m01:34:21.396213 [debug] [MainThread]: Tracking: tracking
+[0m01:34:21.404630 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b4e390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b61c50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b62390>]}
+[0m01:34:21.460837 [debug] [MainThread]: Executing "git --help"
+[0m01:34:21.469714 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m01:34:21.470019 [debug] [MainThread]: STDERR: "b''"
+[0m01:34:21.471308 [debug] [MainThread]: Acquiring new redshift connection 'debug'
+[0m01:34:21.471443 [debug] [MainThread]: Using redshift connection "debug"
+[0m01:34:21.471534 [debug] [MainThread]: On debug: select 1 as id
+[0m01:34:21.471621 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:34:21.471725 [debug] [MainThread]: Redshift adapter: Connecting to Redshift using 'database' credentials
+[0m01:34:21.758727 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a redshift connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+could not translate host name "perch-redshift-dw.cmvqlazn4lur.us-east-2.redshift.amazonaws.com" to address: nodename nor servname provided, or not known
+
+[0m01:34:21.761044 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m01:34:21.761272 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m01:34:21.761581 [debug] [MainThread]: On debug: No close available on handle
+[0m01:34:21.762314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b4e390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b63910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b62cd0>]}
+[0m01:34:21.762939 [debug] [MainThread]: Flushing usage events
+[0m01:34:22.420153 [debug] [MainThread]: Connection 'debug' was properly closed.
