@@ -1,7 +1,7 @@
 with orders as (
     select
-        id as order_id,
-        user_id as customer_id,
+        cast(id as int) as order_id,
+        cast(user_id as int) as customer_id,
         order_date,
         status
     from {{ source('jaffle_shop', 'orders') }}
